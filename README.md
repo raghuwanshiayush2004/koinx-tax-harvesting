@@ -6,9 +6,7 @@ A responsive React application for Tax Loss Harvesting built as part of the Koin
 
 [View Live App](https://koinx-tax-harvesting.vercel.app) *(update this after deploying)*
 
-## 📸 Screenshots
 
-> Add screenshots here after running locally
 
 ## 🛠️ Tech Stack
 
