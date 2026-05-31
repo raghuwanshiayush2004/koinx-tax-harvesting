@@ -1,0 +1,373 @@
+/* ===== KoinX Tax Harvesting - Global Styles ===== */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-app: #0d0f14;
+  --bg-card: #1a1d27;
+  --bg-card-border: #2a2d3a;
+  --bg-blue: #1557ff;
+  --bg-blue-dark: #0e3fd4;
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --green: #22c55e;
+  --red: #ef4444;
+  --blue-accent: #3b82f6;
+  --border: #2a2d3a;
+  --row-hover: #22263a;
+  --row-selected: #1e2540;
+  --font: 'DM Sans', sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+  background: var(--bg-app);
+  color: var(--text-primary);
+  font-family: var(--font);
+}
+
+/* ===== Loading / Error ===== */
+.app-loading, .app-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 16px;
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+.loader-spinner {
+  width: 40px; height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--blue-accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.app-error button {
+  padding: 8px 20px;
+  background: var(--bg-blue);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* ===== App Layout ===== */
+.app { min-height: 100vh; padding: 20px 16px 48px; }
+.app-container { max-width: 1100px; margin: 0 auto; }
+
+/* ===== Page Header ===== */
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.page-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.how-it-works-link {
+  font-size: 13px;
+  color: var(--blue-accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.how-it-works-link:hover { border-color: var(--blue-accent); }
+
+/* ===== Disclaimer ===== */
+.disclaimer-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+.disclaimer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  cursor: pointer;
+  user-select: none;
+}
+.disclaimer-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.disclaimer-icon { font-size: 15px; }
+.disclaimer-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.disclaimer-toggle {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+}
+.disclaimer-list {
+  padding: 4px 16px 14px 16px;
+  list-style: none;
+  border-top: 1px solid var(--border);
+}
+.disclaimer-item {
+  font-size: 12px;
+  color: var(--text-secondary);
+  padding: 4px 0;
+  line-height: 1.6;
+}
+
+/* ===== Cards Row ===== */
+.cards-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* ===== Capital Gains Card ===== */
+.gains-card {
+  border-radius: 12px;
+  padding: 20px;
+}
+.gains-card--dark {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+}
+.gains-card--blue {
+  background: var(--bg-blue);
+  border: 1px solid #2a5fff;
+}
+.gains-card__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.gains-card--blue .gains-card__title { color: #fff; }
+
+.gains-card__table { width: 100%; }
+.gains-card__header-row,
+.gains-card__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+  align-items: center;
+}
+.gains-col-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  text-align: right;
+  font-weight: 500;
+}
+.gains-card--blue .gains-col-label { color: rgba(255,255,255,0.7); }
+
+.gains-row-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+.gains-card--blue .gains-row-label { color: rgba(255,255,255,0.75); }
+
+.gains-value {
+  font-size: 13px;
+  font-weight: 500;
+  text-align: right;
+  color: var(--text-primary);
+}
+.gains-card--blue .gains-value { color: #fff; }
+.gains-value--red { color: var(--red) !important; }
+.gains-card--blue .gains-value--red { color: #fca5a5 !important; }
+.gains-value--neutral { color: var(--text-primary); }
+
+.gains-card__divider {
+  height: 1px;
+  background: var(--border);
+  margin: 12px 0;
+}
+.gains-card--blue .gains-card__divider { background: rgba(255,255,255,0.2); }
+
+.gains-card__realised {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.gains-realised-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.gains-realised-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.gains-card__realised-blue {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.gains-card--blue .gains-realised-label { color: rgba(255,255,255,0.8); }
+.gains-realised-value-blue {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.gains-savings-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+.savings-rocket { font-size: 16px; }
+.savings-text {
+  font-size: 13px;
+  color: rgba(255,255,255,0.9);
+}
+
+/* ===== Holdings Section ===== */
+.holdings-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+.holdings-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+.holdings-table-wrapper {
+  overflow-x: auto;
+}
+.holdings-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+.holdings-table thead tr {
+  border-bottom: 1px solid var(--border);
+}
+.holdings-table th {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: left;
+  padding: 8px 12px 10px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.th-check { width: 40px; }
+.th-sub {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 400;
+  text-transform: none;
+}
+.th-current, .th-stcg, .th-ltcg, .th-amount { text-align: right; }
+
+/* Row styles */
+.holdings-row {
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.holdings-row:hover { background: var(--row-hover); }
+.holdings-row--selected { background: var(--row-selected); }
+.holdings-table td {
+  padding: 12px 12px;
+  vertical-align: middle;
+  font-size: 13px;
+}
+.td-check { width: 40px; }
+.td-current-value, .td-stcg, .td-ltcg, .td-amount { text-align: right; }
+
+/* Checkbox */
+.custom-checkbox {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  accent-color: var(--blue-accent);
+}
+
+/* Asset info */
+.asset-info { display: flex; align-items: center; gap: 10px; }
+.asset-logo { width: 28px; height: 28px; border-radius: 50%; object-fit: contain; background: #fff; padding: 2px; }
+.asset-coin { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.asset-symbol { font-size: 11px; color: var(--text-muted); }
+
+/* Holdings values */
+.holdings-amount { font-size: 13px; font-weight: 500; color: var(--text-primary); }
+.holdings-buy-price { font-size: 11px; color: var(--text-muted); }
+.current-price-sub { font-size: 11px; color: var(--text-muted); }
+
+/* Gain values */
+.gain-value { font-size: 13px; font-weight: 600; }
+.gain--positive { color: var(--green); }
+.gain--negative { color: var(--red); }
+.gain-balance { font-size: 11px; color: var(--text-muted); }
+
+/* Amount to sell */
+.amount-to-sell { font-size: 12px; color: var(--text-primary); font-weight: 500; }
+.amount-dash { color: var(--text-muted); }
+
+/* View all button */
+.view-all-btn {
+  background: none;
+  border: none;
+  color: var(--blue-accent);
+  font-size: 13px;
+  cursor: pointer;
+  margin-top: 14px;
+  padding: 0;
+  font-family: var(--font);
+  transition: opacity 0.15s;
+}
+.view-all-btn:hover { opacity: 0.75; }
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 768px) {
+  .app { padding: 14px 12px 32px; }
+  .page-title { font-size: 18px; }
+  .cards-row { grid-template-columns: 1fr; gap: 12px; }
+  .gains-card { padding: 16px; }
+  .gains-realised-value, .gains-realised-value-blue { font-size: 18px; }
+
+  .holdings-table th,
+  .holdings-table td {
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+  /* On mobile, hide Total Current Value column */
+  .th-current, .td-current-value { display: none; }
+}
+
+@media (max-width: 480px) {
+  .gains-card__header-row,
+  .gains-card__row {
+    grid-template-columns: 1.2fr 1fr 1fr;
+  }
+  .gains-value { font-size: 12px; }
+  .gains-row-label, .gains-col-label { font-size: 11px; }
+}
